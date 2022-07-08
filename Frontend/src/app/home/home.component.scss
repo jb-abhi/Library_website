@@ -1,0 +1,11 @@
+.container {
+  overflow: hidden;
+  background-color: rgb(33, 0, 63);
+  width: 90vw;
+  height: 85vh;
+  margin: 4rem auto;
+
+  &__left-side {
+    background-image: url(/Frontend/src/assets/Homepagebackground.jpg);
+  }
+}
