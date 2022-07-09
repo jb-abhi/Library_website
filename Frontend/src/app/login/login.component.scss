@@ -94,6 +94,20 @@
 
   //<<<<<<<<RIGHT__SIDE>>>>>>>>>>>>
 
+  .material-symbols-outlined {
+    visibility: hidden;
+  }
+
+  input.ng-invalid.ng-touched {
+    border-bottom: solid 2px red;
+  }
+
+  input.ng-valid.ng-touched ~ .material-symbols-outlined {
+    visibility: visible;
+    color: $color-purple-light;
+    font-variation-settings: "FILL" 100, "wght" 500, "GRAD" 50, "opsz" 90;
+  }
+
   &__right-side {
     background-color: $color-white;
     width: 30%;
@@ -160,9 +174,16 @@
         }
       }
 
+      .help-block {
+        padding-bottom: 0.5em;
+        width: 70%;
+        align-self: center;
+        color: red;
+      }
+
       .container--tc {
         display: flex;
-        width: 70%;
+        width: 77%;
         align-items: center;
         justify-content: flex-start;
         gap: 1em;
@@ -182,8 +203,18 @@
         }
       }
     }
+
+    .usernameco,
+    .emailco,
+    .passwordco {
+      display: flex;
+      width: 100%;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
     .btn--purple {
-      width: 70%;
+      width: 80%;
       padding: 0.5em 1.5em;
       border: none;
       background-color: $color-purple-light;
@@ -195,13 +226,18 @@
       transition: all 0.2s;
       margin-bottom: 1.5em;
 
-      &:hover {
-        background: #52009e;
+      &:disabled {
+        background-color: $color-purple-light-disabled;
+        transform: translateY(0px);
+        box-shadow: 0 0.8rem 2rem rgba($color-black, 0);
+      }
+      &:hover:not([disabled]) {
+        background: $color-purple-clicked;
         color: $color-white;
         cursor: pointer;
       }
 
-      &:active {
+      &:active:not([disabled]) {
         box-shadow: 0 0.5rem 1rem rgba($color-black, 0.05);
         transform: translateY(0);
       }

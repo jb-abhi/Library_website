@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   signupVal: boolean = true;
-  constructor() {}
 
+  @ViewChild('signupform') signupform: NgForm;
+  @ViewChild('loginform') loginform: NgForm;
+
+  constructor() {}
   ngOnInit(): void {}
+
+  Onclicklogin() {
+    this.signupVal = false;
+  }
+  Onclicksignup() {
+    this.signupVal = true;
+  }
+  OnSubmit() {
+    console.log(this.signupform);
+  }
+  OnSubmitLogin() {
+    console.log(this.loginform);
+  }
 }

@@ -10,11 +10,25 @@
         Getting started is only a few clicks away!
       </div>
       <div class="buttons">
-        <div class="btn buttons__btn--signup active">Sign up</div>
-        <div class="btn buttons__btn--login">Log in</div>
+        <div
+          class="btn buttons__btn--signup"
+          [ngClass]="signupVal ? 'active' : ''"
+          (click)="Onclicksignup()"
+        >
+          Sign up
+        </div>
+        <div
+          class="btn buttons__btn--login"
+          [ngClass]="signupVal ? '' : 'active'"
+          (click)="Onclicklogin()"
+        >
+          Log in
+        </div>
       </div>
     </div>
   </div>
+  <!-- <<<<<<<<<<<<<<<<<<Signup>>>>>>>>>>>>>>> -->
+
   <div class="container__right-side" [ngSwitch]="signupVal">
     <div class="container__right-side__title" *ngSwitchCase="true">
       <div class="heading">Let's Sign Up</div>
@@ -22,13 +36,97 @@
         Getting started is quick and simple, just fill out the info below!
       </div>
     </div>
-    <form class="container__right-side__form" *ngSwitchCase="true">
-      <input
-        class="form__input--name userinput"
-        type="text"
-        placeholder="Full Name"
-        required
-      />
+    <form
+      class="container__right-side__form"
+      *ngSwitchCase="true"
+      #signupform="ngForm"
+      (ngSubmit)="OnSubmit()"
+    >
+      <p class="help-block" *ngIf="!name.valid && name.touched">
+        This field cannot be empty & numbers are not allowed
+      </p>
+      <div class="usernameco tick">
+        <input
+          class="form__input--name userinput"
+          type="text"
+          name="name"
+          #name="ngModel"
+          placeholder="Full Name"
+          ngModel
+          required
+          pattern="[a-zA-Z ]*"
+        /><span class="material-symbols-outlined"> done_all </span>
+      </div>
+
+      <p class="help-block" *ngIf="!email.valid && email.touched">
+        Please enter a valid Email-Address
+      </p>
+      <div class="emailco tick">
+        <input
+          class="form__input--email userinput"
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          ngModel
+          required
+          email
+          #email="ngModel"
+        />
+        <span class="material-symbols-outlined"> done_all </span>
+      </div>
+      <p class="help-block" *ngIf="!password.valid && password.touched">
+        Min. 8 characters required.
+      </p>
+      <div class="passwordco tick">
+        <input
+          class="form__input--password userinput"
+          name="password"
+          type="password"
+          placeholder="Password"
+          ngModel
+          required
+          #password="ngModel"
+          pattern=".{8,}"
+        />
+        <span class="material-symbols-outlined"> done_all </span>
+      </div>
+      <div class="container--tc">
+        <input
+          class="checkbox"
+          type="checkbox"
+          name="TC"
+          id="TC"
+          ngModel
+          required
+        />
+        <p class="desc--middle" for="">
+          I agree to
+          <span><a href="">Terms & Conditions</a></span>
+        </p>
+      </div>
+      <!-- <p *ngIf="!signupform.valid && signupform.touched">The form is invalid</p> -->
+      <button
+        class="btn--purple"
+        *ngSwitchCase="true"
+        type="submit"
+        [disabled]="!signupform.valid"
+      >
+        Register
+      </button>
+    </form>
+    <div class="desc--bottom" *ngSwitchCase="true">
+      Already have an account? Click
+      <span><a href="">here</a></span>
+      to login
+    </div>
+
+    <!-- <<<<<<<<<<<<<<<<<<Login>>>>>>>>>>>>>>> -->
+
+    <!-- <div class="container__right-side__title" *ngSwitchCase="false">
+      <div class="heading">Login here</div>
+      <div class="desc--top">Nice to see you again!</div>
+    </div>
+    <form class="container__right-side__form" *ngSwitchCase="false">
       <input
         class="form__input--email userinput"
         type="email"
@@ -44,16 +142,78 @@
       <div class="container--tc">
         <input class="checkbox" type="checkbox" name="TC" id="TC" />
         <p class="desc--middle" for="">
-          I agree to
-          <span><a href="">Terms & Conditions</a></span>
+          <span><a href="">Remember me</a></span>
         </p>
       </div>
+      <button class="btn--purple" *ngSwitchCase="false">Login</button>
     </form>
-    <button class="btn--purple" *ngSwitchCase="true">Register</button>
-    <div class="desc--bottom" *ngSwitchCase="true">
-      Already have an account? Click
-      <span><a href="">here</a></span>
-      to login
+    <div class="desc--bottom" *ngSwitchCase="false">
+      <span><a href="">Forgot Password?</a></span>
+    </div>
+  </div>
+</div> -->
+
+    <!-- <<<<<<<<<<<<<<<<<<Login NEW>>>>>>>>>>>>>>> -->
+
+    <div class="container__right-side__title" *ngSwitchCase="false">
+      <div class="heading">Login here</div>
+      <div class="desc--top">Nice to see you again!</div>
+    </div>
+    <form
+      class="container__right-side__form"
+      *ngSwitchCase="false"
+      #loginform="ngForm"
+      (ngSubmit)="OnSubmitLogin()"
+    >
+      <p class="help-block" *ngIf="!email.valid && email.touched">
+        Please enter a valid Email-Address
+      </p>
+      <div class="emailco tick">
+        <input
+          class="form__input--email userinput"
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          ngModel
+          required
+          email
+          #email="ngModel"
+        />
+        <span class="material-symbols-outlined"> done_all </span>
+      </div>
+      <p class="help-block" *ngIf="!password.valid && password.touched">
+        Min. 8 characters required.
+      </p>
+      <div class="passwordco tick">
+        <input
+          class="form__input--password userinput"
+          name="password"
+          type="password"
+          placeholder="Password"
+          ngModel
+          required
+          #password="ngModel"
+          pattern=".{8,}"
+        />
+        <span class="material-symbols-outlined"> done_all </span>
+      </div>
+      <div class="container--tc">
+        <input class="checkbox" type="checkbox" name="TC" id="TC" ngModel />
+        <p class="desc--middle" for="">
+          <span><a href="">Remember me</a></span>
+        </p>
+      </div>
+      <button
+        class="btn--purple"
+        *ngSwitchCase="false"
+        type="submit"
+        [disabled]="!loginform.valid"
+      >
+        Login
+      </button>
+    </form>
+    <div class="desc--bottom" *ngSwitchCase="false">
+      <span><a href="">Forgot Password?</a></span>
     </div>
   </div>
 </div>
