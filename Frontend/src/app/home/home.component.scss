@@ -1,11 +1,232 @@
+@import "../../assets/variables.scss";
+
+// font-family: 'Arima', cursive;
+// font-family: 'Barlow', sans-serif;
+// font-family: 'Quicksand', sans-serif;
+
 .container {
   overflow: hidden;
   background-color: rgb(33, 0, 63);
   width: 90vw;
   height: 85vh;
   margin: 4rem auto;
+  display: flex;
 
   &__left-side {
-    background-image: url(/Frontend/src/assets/Homepagebackground.jpg);
+    width: 70%;
+    height: 100%;
+    background-image: linear-gradient(
+        to right top,
+        rgba($color-purple-dark, 1),
+        rgba($color-purple-light, 0.4)
+      ),
+      url(/assets/Homepagebackground.jpg);
+    background-size: cover;
+
+    &__tag {
+      height: 100%;
+      width: 50%;
+      padding: 0 4.5em;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+
+      .heading {
+        color: $color-white;
+        font-family: "Barlow", sans-serif;
+        font-size: $h1-Barlow;
+        font-weight: 100;
+        line-height: 4.5rem;
+        text-align: left;
+      }
+      .desc {
+        margin-top: 1.5em;
+        padding-left: 0.2em;
+        color: $color-white;
+        font-family: "Barlow", sans-serif;
+        font-size: $h5-Barlow;
+        font-weight: 100;
+      }
+      .buttons {
+        margin-top: 1.8em;
+        display: flex;
+        gap: 1.5em;
+        font-family: "Quicksand", sans-serif;
+
+        .btn {
+          border-radius: 2px;
+          text-align: center;
+          font-size: $h6-Barlow;
+          padding: 0.5em;
+          width: 15.1rem;
+          cursor: pointer;
+          font-weight: 600;
+        }
+
+        &__btn--learnmore {
+          background-color: $color-white;
+          color: $color-purple-dark;
+          border: 1px solid $color-white;
+          box-shadow: 0 1rem 2rem rgba($color-black, 0.35);
+          transform: translateY(-2px);
+          transition: all 0.1s;
+
+          &:hover {
+            background-color: $color-secondary-light;
+            border: 1px solid $color-secondary-light;
+          }
+
+          &:active {
+            box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+            transform: translateY(0);
+          }
+        }
+        &__btn--signup {
+          color: $color-white;
+          border: 1px solid $color-white;
+          box-shadow: 0 1rem 2rem rgba($color-black, 0.35);
+          transform: translateY(-2px);
+          transition: all 0.1s;
+
+          &:hover {
+            background-color: $color-white;
+            color: $color-purple-dark;
+          }
+
+          &:active {
+            box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+  }
+
+  //<<<<<<<<RIGHT__SIDE>>>>>>>>>>>>
+
+  &__right-side {
+    background-color: $color-white;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 60%;
+      margin-bottom: 5em;
+
+      .heading {
+        color: $color-purple-light;
+        font-family: "Barlow", sans-serif;
+        font-size: $h2-Barlow;
+        text-align: center;
+        font-weight: 600;
+      }
+      .desc--top {
+        color: $color-purple-dark;
+        font-family: "Barlow", sans-serif;
+        font-size: $h5-Barlow;
+        text-align: center;
+      }
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      .userinput {
+        width: 70%;
+        outline: none;
+        border: none;
+        margin-bottom: 1.5em;
+        padding-bottom: 0.4em;
+        font-family: "Barlow", sans-serif;
+        font-size: $h3-Barlow;
+        border-bottom: solid 2px $color-grey-light-2;
+        color: $color-purple-light;
+
+        &::placeholder {
+          font-family: "Barlow", sans-serif;
+          font-size: $h4-Barlow;
+          color: $color-grey-dark-2;
+        }
+        &:focus {
+          border-bottom: solid 2px $color-purple-light;
+
+          &::placeholder {
+            font-family: "Barlow", sans-serif;
+            color: $color-purple-light;
+            font-weight: 700;
+          }
+        }
+      }
+
+      .container--tc {
+        display: flex;
+        width: 70%;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1em;
+        margin-bottom: 2em;
+
+        .checkbox {
+          accent-color: $color-purple-light;
+        }
+
+        .desc--middle {
+          a {
+            color: $color-purple-light;
+            font-weight: 600;
+            font-family: "Barlow", sans-serif;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .btn--purple {
+      width: 70%;
+      padding: 0.5em 1.5em;
+      border: none;
+      background-color: $color-purple-light;
+      color: $color-white;
+      font-weight: 600;
+      font-family: "Barlow", sans-serif;
+      box-shadow: 0 0.8rem 2rem rgba($color-black, 0.1);
+      transform: translateY(-1px);
+      transition: all 0.2s;
+      margin-bottom: 1.5em;
+
+      &:hover {
+        background: #52009e;
+        color: $color-white;
+        cursor: pointer;
+      }
+
+      &:active {
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.05);
+        transform: translateY(0);
+      }
+    }
+    .desc--bottom {
+      font-family: "Barlow", sans-serif;
+      font-size: $h6-Barlow;
+      a {
+        color: $color-purple-light;
+        font-weight: 600;
+        font-family: "Barlow", sans-serif;
+        text-decoration: none;
+        font-size: $h6-Barlow;
+      }
+    }
   }
 }
