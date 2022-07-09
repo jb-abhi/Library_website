@@ -10,19 +10,19 @@
         Getting started is only a few clicks away!
       </div>
       <div class="buttons">
-        <div class="btn buttons__btn--learnmore">Learn More</div>
-        <div class="btn buttons__btn--signup">Log in</div>
+        <div class="btn buttons__btn--signup active">Sign up</div>
+        <div class="btn buttons__btn--login">Log in</div>
       </div>
     </div>
   </div>
-  <div class="container__right-side">
-    <div class="container__right-side__title">
+  <div class="container__right-side" [ngSwitch]="signupVal">
+    <div class="container__right-side__title" *ngSwitchCase="true">
       <div class="heading">Let's Sign Up</div>
       <div class="desc--top">
         Getting started is quick and simple, just fill out the info below!
       </div>
     </div>
-    <form class="container__right-side__form">
+    <form class="container__right-side__form" *ngSwitchCase="true">
       <input
         class="form__input--name userinput"
         type="text"
@@ -49,8 +49,8 @@
         </p>
       </div>
     </form>
-    <button class="btn--purple">Register</button>
-    <div class="desc--bottom">
+    <button class="btn--purple" *ngSwitchCase="true">Register</button>
+    <div class="desc--bottom" *ngSwitchCase="true">
       Already have an account? Click
       <span><a href="">here</a></span>
       to login
