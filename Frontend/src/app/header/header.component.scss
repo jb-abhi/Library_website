@@ -1,0 +1,52 @@
+@import "../../assets/variables.scss";
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  font-size: 2rem;
+}
+
+// font-family: 'Arima', cursive;
+// font-family: 'Barlow', sans-serif;
+// font-family: 'Quicksand', sans-serif;
+
+.container {
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5em;
+  background-color: $color-white;
+
+  .namelogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
+  }
+
+  li {
+    list-style: none;
+    font-family: "Arima", cursive;
+    text-decoration: none;
+    font-size: 1.5rem;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  .nav-link {
+    padding-top: 6px;
+    border-bottom: solid 2px $color-white;
+    text-align: center;
+    height: 100%;
+
+    &:hover {
+      border-bottom: solid 2px $color-primary-dark;
+    }
+  }
+  .active {
+    font-weight: 800;
+  }
+}
