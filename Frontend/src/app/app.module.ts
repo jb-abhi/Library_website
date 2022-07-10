@@ -11,8 +11,15 @@ import { NewbookComponent } from './newbook/newbook.component';
 import { UpdatebookComponent } from './updatebook/updatebook.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, BooksComponent, HeaderComponent, NewbookComponent, UpdatebookComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    BooksComponent,
+    HeaderComponent,
+    NewbookComponent,
+    UpdatebookComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

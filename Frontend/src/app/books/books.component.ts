@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
-  styleUrls: ['./books.component.scss']
+  styleUrls: ['./books.component.scss'],
 })
 export class BooksComponent implements OnInit {
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  OnUpdateForm() {
+    this.router.navigate(['/updatebook'], { relativeTo: this.route });
   }
-
 }

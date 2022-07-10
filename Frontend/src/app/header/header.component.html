@@ -1,15 +1,17 @@
 <div class="container">
-  <li class="namelogo">
-    <a class="nav-link" href="">Add new book</a>
+  <li class="namelogo" routerLinkActive="active" routerLink="newbook">
+    <a style="cursor: pointer" class="nav-link">Add new book</a>
     <span class="logo" class="material-symbols-outlined"> library_add </span>
   </li>
 
-  <li class="namelogo active">
-    <a class="nav-link" href="">Book Listing</a>
+  <li class="namelogo" routerLinkActive="active" routerLink="booklist">
+    <a style="cursor: pointer" class="nav-link">Book Listing</a>
   </li>
 
+  <!-- routerLinkActive="active"  routerLink="booklist" -->
+  <!-- To be added later for login -->
   <li class="namelogo">
-    <a class="nav-link" href="">Log out </a>
+    <a style="cursor: pointer" class="nav-link">Log out </a>
     <span class="logo" class="material-symbols-outlined"> logout </span>
   </li>
 </div>
