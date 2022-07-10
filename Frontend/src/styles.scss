@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "assets/variables.scss";
+
 *,
 *::after,
 *::before {
@@ -21,10 +23,10 @@ body {
   line-height: 1.7;
 }
 
-// ::selection {
-//   background-color: $color-bg;
-//   color: $color-secondary;
-// }
+::selection {
+  background-color: $color-black;
+  color: $color-white;
+}
 
 //   @include respond(big-desktop) {
 //     // width < 1800

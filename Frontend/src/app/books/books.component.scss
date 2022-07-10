@@ -169,6 +169,7 @@
       img {
         height: 60%;
         object-fit: contain;
+        filter: drop-shadow(6px 6px 8px grey);
       }
     }
     .active {
