@@ -1,12 +1,19 @@
 // COLORS
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
-$color-primary-dark: #28b485;
+$color-primary-light-dark: #6dbd5f;
+$color-primary-dark: #006b47;
+$color-primary-dark-hover: #004e34;
 
 $color-secondary-light: #ffb900;
 $color-secondary-dark: #ff7730;
+$color-secondary-dark-hover: #f16c24;
+
+$color-secondary-delete: #c40000;
+$color-secondary-delete-dark: #b40000;
 
 $color-tertiary-light: #2998ff;
+$color-tertiary-light-dark: #1d86e7;
 $color-tertiary-dark: #5643fa;
 
 $color-purple-dark: #21003f;
@@ -19,7 +26,8 @@ $color-grey-light-2: #eee;
 
 $color-grey-dark: #777;
 $color-grey-dark-2: #999;
-$color-grey-dark-3: #333;
+$color-grey-dark-3: #414141;
+$color-grey-dark-3-hover: #2c2c2c;
 
 $color-brown: #330007;
 
@@ -41,3 +49,5 @@ $h3-Barlow: 1.5rem;
 $h4-Barlow: 1.4rem;
 $h5-Barlow: 1.2rem;
 $h6-Barlow: 1.15rem;
+$h7-Barlow: 1rem;
+$h9-Barlow: 0.5rem;

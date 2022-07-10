@@ -16,12 +16,23 @@
   justify-content: space-between;
   padding: 0 2.5em;
   background-color: $color-white;
+  border-bottom: solid 1px $color-grey-light-2;
+
+  .active {
+    border-bottom: solid 2px $color-brown;
+    background-color: $color-grey-light-1;
+  }
 
   .namelogo {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.4em;
+    padding: 0.5em 2em;
+
+    &:hover {
+      background-color: $color-grey-light-1;
+    }
   }
 
   li {
@@ -37,14 +48,8 @@
   }
 
   .nav-link {
-    padding-top: 6px;
-    border-bottom: solid 2px $color-white;
     text-align: center;
     height: 100%;
-
-    &:hover {
-      border-bottom: solid 2px $color-primary-dark;
-    }
   }
   .active {
     font-weight: 800;
