@@ -9,6 +9,8 @@ import { BooksComponent } from './books/books.component';
 import { HeaderComponent } from './header/header.component';
 import { NewbookComponent } from './newbook/newbook.component';
 import { UpdatebookComponent } from './updatebook/updatebook.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BookserviceService } from './bookservice.service';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,14 @@ import { UpdatebookComponent } from './updatebook/updatebook.component';
     NewbookComponent,
     UpdatebookComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, AppRoutingModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    AppRoutingModule,
+  ],
+  providers: [BookserviceService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

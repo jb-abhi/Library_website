@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BookserviceService } from '../bookservice.service';
+import { Book } from '../models/book';
 
 @Component({
   selector: 'app-books',
@@ -7,9 +9,20 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./books.component.scss'],
 })
 export class BooksComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  booklist: Book[] = [];
 
-  ngOnInit(): void {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private bookService: BookserviceService
+  ) {}
+
+  ngOnInit(): void {
+    this.bookService.getBooklist().subscribe((book) => {
+      this.booklist = book;
+      console.log(this.booklist[0].title);
+    });
+  }
   OnUpdateForm() {
     this.router.navigate(['/updatebook'], { relativeTo: this.route });
   }
