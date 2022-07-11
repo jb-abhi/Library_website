@@ -11,6 +11,8 @@ import { NewbookComponent } from './newbook/newbook.component';
 import { UpdatebookComponent } from './updatebook/updatebook.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BookserviceService } from './bookservice.service';
+import { BookDetailComponent } from './books/book-detail/book-detail.component';
+import { BookImageComponent } from './books/book-detail/book-image/book-image.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { BookserviceService } from './bookservice.service';
     HeaderComponent,
     NewbookComponent,
     UpdatebookComponent,
+    BookDetailComponent,
+    BookImageComponent,
   ],
   imports: [
     BrowserModule,

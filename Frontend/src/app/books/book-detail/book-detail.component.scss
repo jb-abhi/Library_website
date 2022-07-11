@@ -1,0 +1,97 @@
+@import "../../../assets/variables.scss";
+
+.middle {
+  // background-color: bisque;
+  background-color: $color-white;
+  padding: 7em 2.5em;
+
+  .middle--group {
+    line-height: 3em;
+    margin-bottom: 5em;
+
+    .heading {
+      font-family: "Nanum Myeongjo", serif;
+      font-weight: 800;
+      font-size: 3.5em;
+    }
+    .author {
+      font-family: "Arima", cursive;
+      font-weight: 400;
+      font-size: 1.2em;
+    }
+  }
+
+  .info {
+    font-family: "Barlow", sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 3em;
+  }
+
+  .small-container {
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__left,
+    &__right {
+      padding: 0 0.5em;
+      width: 50%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 1.5em;
+      font-size: 1.1rem;
+
+      ul:nth-child(odd) {
+        font-weight: 800;
+      }
+    }
+  }
+  .button-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7em;
+    gap: 5em;
+
+    button {
+      padding: 0.8em 4em;
+      border: none;
+      border-radius: 2px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .update {
+      border: solid 1px $color-grey-dark-3;
+      background-color: $color-white;
+      color: $color-grey-dark-3;
+      transform: translateY(-2px);
+      transition: all 0.15s;
+
+      &:hover {
+        background-color: $color-grey-dark-3-hover;
+        color: $color-white;
+      }
+
+      &:active {
+        transform: translateY(0px);
+      }
+    }
+    .delete {
+      border: solid 1px $color-white;
+      background-color: $color-secondary-delete;
+      transform: translateY(-2px);
+      transition: all 0.15s;
+      color: $color-white;
+
+      &:hover {
+        background-color: $color-secondary-delete-dark;
+      }
+
+      &:active {
+        transform: translateY(0px);
+      }
+    }
+  }
+}
