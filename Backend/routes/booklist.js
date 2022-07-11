@@ -2,16 +2,25 @@ const { Book } = require("../models/books");
 const express = require("express");
 const router = express.Router();
 
-router.get("/:id", async (req, res) => {
-  const booklist = await Book.findById(req.params.id);
+router.get("/", async (req, res) => {
+  const booklist = await Book.find();
 
   if (!booklist) {
-    res.status(500).json({ succes: false });
+    res.status(500).json({ success: false });
   }
   res.send(booklist);
 });
 
-router.delete(":/id", (req, res) => {
+router.get("/:id", async (req, res) => {
+  const booklist = await Book.findById(req.params.id);
+
+  if (!booklist) {
+    res.status(500).json({ success: false });
+  }
+  res.status(200).send(booklist);
+});
+
+router.delete("/:id", (req, res) => {
   Book.findByIdAndRemove(req.params.id)
     .then((book) => {
       if (book) {
@@ -25,7 +34,7 @@ router.delete(":/id", (req, res) => {
       }
     })
     .catch((err) => {
-      return res.status(404).json({ success: false, error: err });
+      return res.status(500).json({ success: false, error: err });
     });
 });
 
