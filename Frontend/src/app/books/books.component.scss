@@ -17,6 +17,39 @@
     font-weight: 600;
   }
 
+  .welcometext {
+    width: 110rem;
+    background-color: rgba(233, 233, 233, 0.349);
+    display: flex;
+    justify-content: center;
+
+    .smallcontainer {
+      margin-top: 20%;
+      padding: 1.5rem 1.5rem;
+      background-color: rgba(255, 0, 0, 0.13);
+      height: fit-content;
+      border: dotted 1px red;
+      width: 45%;
+
+      .info {
+        font-family: "Barlow", sans-serif;
+        font-size: 2em;
+        color: rgb(145, 0, 0);
+        text-align: center;
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 10, "opsz" 48;
+      }
+
+      p {
+        font-family: "Barlow", sans-serif;
+        font-size: 1.5em;
+        text-align: center;
+      }
+    }
+  }
+
   // .left-side {
   //   // background-color: aquamarine;
   //   background-color: $color-white;
@@ -147,8 +180,6 @@
     background-color: $color-white;
 
     .book-list-container {
-      // background-color: antiquewhite;
-      // background-color: $color-white;
       border-left: solid 3px $color-white;
       height: 17rem;
       // border-bottom: solid 1px black;

@@ -11,19 +11,20 @@ import { Book } from '../models/book';
 export class BooksComponent implements OnInit {
   booklist: Book[] = [];
   selectedbook: Book;
+  selectedIndex: number = null;
+  numbercheck: number = null;
 
   constructor(private bookService: BookserviceService) {}
 
   ngOnInit(): void {
     this.bookService.getBooklist().subscribe((book) => {
       this.booklist = book;
-      console.log(this.booklist[0].title);
     });
   }
 
-  OnSelected(book: Book) {
-    // this.bookService.getSelectedBook(book);
-    // this.selectedbook = book;
+  OnSelected(book: Book, index: number) {
     this.bookService.setData(book);
+    this.selectedIndex = index;
+    this.numbercheck = this.selectedIndex + 1;
   }
 }
