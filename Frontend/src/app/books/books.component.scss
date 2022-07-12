@@ -18,7 +18,7 @@
   }
 
   .welcometext {
-    width: 110rem;
+    width: 115rem;
     background-color: rgba(233, 233, 233, 0.349);
     display: flex;
     justify-content: center;
@@ -176,13 +176,12 @@
   //   }
   // }
   .right-side {
-    // background-color: cadetblue;
     background-color: $color-white;
-
+    height: 95vh;
+    overflow-y: scroll;
     .book-list-container {
       border-left: solid 3px $color-white;
       height: 17rem;
-      // border-bottom: solid 1px black;
       display: flex;
       flex-direction: column;
       align-content: center;
@@ -206,6 +205,37 @@
     .active {
       border-left: solid 3px $color-secondary-dark;
       background-color: $color-grey-light-1;
+    }
+  }
+}
+
+.right-side-2 {
+  background-color: $color-white;
+  height: 95vh;
+  margin-left: -81.5px;
+  width: 20rem;
+  overflow-y: scroll;
+  .book-list-container-2 {
+    border-left: solid 3px $color-white;
+    height: 17rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+
+    .heading-list-2 {
+      margin-top: 1em;
+      text-align: center;
+      text-transform: uppercase;
+      font-family: "Oswald", sans-serif;
+      font-size: $h6-Barlow;
+      font-weight: 500;
+    }
+
+    .img-2 {
+      height: 60%;
+      object-fit: contain;
+      filter: drop-shadow(6px 6px 8px grey);
     }
   }
 }

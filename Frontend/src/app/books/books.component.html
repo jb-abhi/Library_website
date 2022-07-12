@@ -11,7 +11,7 @@
       </div>
     </div>
   </ng-template>
-  <div class="right-side">
+  <div class="right-side" *ngIf="numbercheck; else rightside2">
     <div
       class="book-list-container"
       *ngFor="let bookEl of booklist; let i = index"
@@ -22,6 +22,19 @@
       <div class="heading-list">{{ bookEl.title }}</div>
     </div>
   </div>
+  <ng-template #rightside2>
+    <div class="right-side-2">
+      <div
+        class="book-list-container-2"
+        *ngFor="let bookEl of booklist; let i = index"
+        [class.active]="selectedIndex === i"
+        (click)="OnSelected(bookEl, i)"
+      >
+        <img class="img-2" src="{{ bookEl.image }}" alt="" />
+        <div class="heading-list-2">{{ bookEl.title }}</div>
+      </div>
+    </div>
+  </ng-template>
 </div>
 
 <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<DO NOT TOUCH>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
