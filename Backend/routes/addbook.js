@@ -31,7 +31,7 @@ const uploadOptions = multer({ storage: storage });
 
 router.post("/", uploadOptions.single("image"), async (req, res) => {
   const fileName = req.file.filename;
-  const basePath = `${req.protocol}://${req.get("host")}/public/upload/`;
+  const basePath = `${req.protocol}://${req.get("host")}/public/uploads/`;
 
   let book = new Book({
     title: req.body.title,

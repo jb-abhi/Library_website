@@ -18,7 +18,7 @@
       [class.active]="selectedIndex === i"
       (click)="OnSelected(bookEl, i)"
     >
-      <img src="{{ bookEl.image }}" alt="" />
+      <img [src]="bookEl.image" alt="" />
       <div class="heading-list">{{ bookEl.title }}</div>
     </div>
   </div>
@@ -30,7 +30,7 @@
         [class.active]="selectedIndex === i"
         (click)="OnSelected(bookEl, i)"
       >
-        <img class="img-2" src="{{ bookEl.image }}" alt="" />
+        <img class="img-2" [src]="bookEl.image" alt="" />
         <div class="heading-list-2">{{ bookEl.title }}</div>
       </div>
     </div>

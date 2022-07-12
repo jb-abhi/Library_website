@@ -1,30 +1,79 @@
 <div class="container">
   <div class="left-side">
-    <div class="image-container">
+    <p class="icon">
+      <span class="material-symbols-outlined"> upload_file </span>
+    </p>
+    <!-- <div class="image-container">
       <img src="assets/Danbrownbook.jpg" alt="" />
-    </div>
+    </div> -->
   </div>
   <div class="right-side">
     <h3 class="heading">Add New Book</h3>
-    <form class="form-container-addbook">
+    <form class="form-container-addbook" [formGroup]="form">
       <div class="title group">
-        <label for="">Title<span class="asterisk">&#42;</span></label>
-        <input type="text" placeholder="Title of Book" required />
+        <label for="title">Title<span class="asterisk">&#42;</span></label>
+        <p
+          class="errortext"
+          *ngIf="this.form.controls?.['title'].invalid && this.form.controls?.['title'].touched"
+        >
+          This field is required
+        </p>
+        <input
+          type="text"
+          id="name"
+          placeholder="Title of Book"
+          formControlName="title"
+          required
+        />
       </div>
       <div class="image group">
-        <label for="">Image</label>
-        <input type="text" placeholder="Image url of book" />
+        <label for="image">Image<span class="asterisk">&#42;</span></label>
+        <p
+          class="errortext"
+          *ngIf="this.form.controls?.['image'].invalid && this.form.controls?.['image'].touched"
+        >
+          This field is required
+        </p>
+        <input
+          type="file"
+          accept="image/*"
+          (change)="onImageUpload($event)"
+          id="image"
+          placeholder="Image url of book"
+        />
+        <div>
+          <img style="width: 25%" [src]="imageDisplay" alt="" />
+        </div>
       </div>
       <div class="author group">
-        <label for="">Author<span class="asterisk">&#42;</span></label>
-        <input type="text" placeholder="Author of book" required />
+        <label for="author">Author<span class="asterisk">&#42;</span></label>
+        <p
+          class="errortext"
+          *ngIf="this.form.controls?.['author'].invalid && this.form.controls?.['author'].touched"
+        >
+          This field is required
+        </p>
+        <input
+          type="text"
+          id="author"
+          formControlName="author"
+          placeholder="Author of book"
+          required
+        />
       </div>
       <div class="about group">
-        <label for="">About<span class="asterisk">&#42;</span></label>
+        <label for="about">About<span class="asterisk">&#42;</span></label>
+        <p
+          class="errortext"
+          *ngIf="this.form.controls?.['about'].invalid && this.form.controls?.['about'].touched"
+        >
+          This field is required
+        </p>
         <textarea
           class="aboutinput"
+          formControlName="about"
           name=""
-          id=""
+          id="about"
           cols="80"
           rows="10"
           placeholder="A Brief about the book"
@@ -32,7 +81,13 @@
         ></textarea>
       </div>
       <div class="button">
-        <button class="newbook btn">Add new Book</button>
+        <button
+          class="newbook btn"
+          [disabled]="!form.valid"
+          (click)="onSubmit()"
+        >
+          Add new Book
+        </button>
         <button class="cancel btn">Cancel changes</button>
       </div>
     </form>
