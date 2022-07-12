@@ -51,6 +51,13 @@
       justify-content: center;
       padding: 1.5em 4em;
 
+      .success {
+        color: $color-primary-dark;
+        font-family: "Titillium Web", sans-serif;
+        font-weight: 700;
+        font-size: 1.7rem;
+      }
+
       .group {
         display: flex;
         flex-direction: column;

@@ -13,9 +13,12 @@ import { Book } from '../models/book';
 export class NewbookComponent implements OnInit {
   form: FormGroup;
   imageDisplay: string | ArrayBuffer;
+  ifSuccess: boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
-    private bookService: BookserviceService
+    private bookService: BookserviceService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +44,14 @@ export class NewbookComponent implements OnInit {
   }
 
   private _addBook(bookData: FormData) {
-    this.bookService.createBook(bookData).subscribe();
+    this.bookService.createBook(bookData).subscribe((bookData: Book) => {
+      this.ifSuccess = true;
+      timer(500)
+        .toPromise()
+        .then(() => {
+          this.location.back();
+        });
+    });
   }
   onSubmit() {
     if (this.form.invalid) {
