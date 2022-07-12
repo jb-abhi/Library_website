@@ -23,6 +23,7 @@ export class BooksComponent implements OnInit {
 
   OnSelected(book: Book) {
     // this.bookService.getSelectedBook(book);
-    this.selectedbook = book;
+    // this.selectedbook = book;
+    this.bookService.setData(book);
   }
 }

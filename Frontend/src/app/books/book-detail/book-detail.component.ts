@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookserviceService } from 'src/app/bookservice.service';
@@ -10,11 +10,17 @@ import { Book } from 'src/app/models/book';
   styleUrls: ['./book-detail.component.scss'],
 })
 export class BookDetailComponent implements OnInit {
-  @Input('selectedbook')
-  set data(selectedbook: any) {
-    //working
-    console.log(selectedbook);
-  }
+  // @Input('selectedbook')
+  // set data(selectedbook: any) { //working
+  //   console.log(selectedbook);
+  // }
+  individualbook = {
+    title: '',
+    author: '',
+    image: '',
+    about: '',
+  };
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -22,6 +28,12 @@ export class BookDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.bookService.getData().subscribe((data) => {
+      this.individualbook.title = data.title;
+      this.individualbook.author = data.author;
+      this.individualbook.image = data.image;
+      this.individualbook.about = data.about;
+    });
     // this.singlebook = this.bookService.recieveSelectedBook();
     // console.log('This is the single book rendered from detail component');
     // console.log(this.singlebook);
