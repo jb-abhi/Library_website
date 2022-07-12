@@ -1,27 +1,32 @@
 <div class="container">
   <app-book-image></app-book-image>
-  <app-book-detail></app-book-detail>
+  <app-book-detail [selectedbook]="selectedbook"> </app-book-detail>
+
   <div class="right-side">
-    <div class="book-list-container active">
-      <img src="assets/Danbrownbook.jpg" alt="" />
-      <div class="heading-list">Da Vinci Code</div>
+    <div
+      class="book-list-container active"
+      *ngFor="let bookEl of booklist"
+      (click)="OnSelected(bookEl)"
+    >
+      <img src="{{ bookEl.image }}" alt="" />
+      <div class="heading-list">{{ bookEl.title }}</div>
     </div>
-    <div class="book-list-container">
+    <!-- <div class="book-list-container">
       <img src="assets/Listen to me.jpg" alt="" />
       <div class="heading-list">Listen to me</div>
-    </div>
-    <div class="book-list-container">
+    </div> -->
+    <!-- <div class="book-list-container">
       <img src="assets/local.jpg" alt="" />
       <div class="heading-list">Local Gone Missing</div>
-    </div>
-    <div class="book-list-container">
+    </div> -->
+    <!-- <div class="book-list-container">
       <img src="assets/malcolm.jpg" alt="" />
       <div class="heading-list">Malcolm</div>
-    </div>
-    <div class="book-list-container">
+    </div> -->
+    <!-- <div class="book-list-container">
       <img src="assets/one of the girls.jpg" alt="" />
       <div class="heading-list">One of the girls</div>
-    </div>
+    </div> -->
   </div>
 </div>
 
