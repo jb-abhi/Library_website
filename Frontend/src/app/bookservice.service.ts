@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 export class BookserviceService {
   apiURLbooklist = environment.apiURL + 'booklist';
   apiURLaddbook = environment.apiURL + 'addbook';
+  apiURLdeletebook = environment.apiURL + 'addbook';
 
   private _data: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
@@ -25,10 +26,15 @@ export class BookserviceService {
   constructor(private http: HttpClient) {}
 
   getBooklist(): Observable<Book[]> {
+    console.log('called get booklist service');
     return this.http.get<Book[]>(this.apiURLbooklist);
   }
 
   createBook(bookData: FormData): Observable<Book> {
     return this.http.post<Book>(this.apiURLaddbook, bookData);
+  }
+
+  deleteBook(bookId: string): Observable<Object> {
+    return this.http.delete<Object>(this.apiURLbooklist + `/${bookId}`);
   }
 }

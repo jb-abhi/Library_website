@@ -1,6 +1,10 @@
 <div class="container">
   <app-book-image *ngIf="numbercheck"></app-book-image>
-  <app-book-detail *ngIf="numbercheck; else infoText"> </app-book-detail>
+  <app-book-detail
+    *ngIf="numbercheck; else infoText"
+    (booklistUpdated)="containergetBooklist()"
+  >
+  </app-book-detail>
   <ng-template #infoText>
     <div class="welcometext">
       <div class="smallcontainer">

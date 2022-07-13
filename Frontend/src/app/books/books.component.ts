@@ -16,10 +16,13 @@ export class BooksComponent implements OnInit {
 
   constructor(private bookService: BookserviceService) {}
 
-  ngOnInit(): void {
+  containergetBooklist() {
     this.bookService.getBooklist().subscribe((book) => {
       this.booklist = book;
     });
+  }
+  ngOnInit(): void {
+    this.containergetBooklist();
   }
 
   OnSelected(book: Book, index: number) {

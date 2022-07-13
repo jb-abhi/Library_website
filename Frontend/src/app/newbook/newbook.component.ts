@@ -53,6 +53,17 @@ export class NewbookComponent implements OnInit {
         });
     });
   }
+
+  onCancel() {
+    if (this.form.touched) {
+      if (confirm('Are you sure you want to leave this page')) {
+        this.location.back();
+      }
+    } else {
+      this.location.back();
+    }
+  }
+
   onSubmit() {
     if (this.form.invalid) {
       return;
