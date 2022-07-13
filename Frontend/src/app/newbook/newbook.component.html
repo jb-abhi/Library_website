@@ -1,7 +1,12 @@
 <div class="container">
   <div class="left-side">
     <p class="icon">
-      <span class="material-symbols-outlined"> upload_file </span>
+      <span class="material-symbols-outlined" *ngIf="!editmode">
+        note_add
+      </span>
+      <span class="material-symbols-outlined" *ngIf="editmode">
+        edit_note
+      </span>
     </p>
     <!-- <div class="image-container">
       <img src="assets/Danbrownbook.jpg" alt="" />
@@ -84,6 +89,9 @@
       <div class="success" *ngIf="ifUpdate">
         <p>Book updated successfully!</p>
       </div>
+      <div class="successAdd" *ngIf="ifSuccess">
+        <p>Book added successfully!</p>
+      </div>
       <div class="button">
         <button
           class="newbook btn"
@@ -93,11 +101,8 @@
         >
           Update Book
         </button>
-        <div class="success" *ngIf="ifSuccess">
-          <p>Book added successfully!</p>
-        </div>
         <button
-          class="newbook btn"
+          class="newbookAdd btn"
           [disabled]="!form.valid"
           (click)="onSubmit()"
           *ngIf="!editmode"
