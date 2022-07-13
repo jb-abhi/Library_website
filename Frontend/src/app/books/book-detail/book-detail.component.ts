@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookserviceService } from 'src/app/bookservice.service';
 import { Book } from 'src/app/models/book';
@@ -40,8 +39,14 @@ export class BookDetailComponent implements OnInit {
   ngOnInit() {
     this._getbooklist();
   }
-  OnUpdateForm() {
-    this.router.navigate(['/updatebook'], { relativeTo: this.route });
+  OnUpdateForm(bookId: string) {
+    // this.router.navigate(['/updatebook'], { relativeTo: this.route });
+    this.router.navigateByUrl(`updatebook/${bookId}`);
+    // this.route.params.subscribe((params) => {
+    //   if (params.id) {
+    //     this.bookService.getBook(params.id).subscribe((book) => {});
+    //   }
+    // });
   }
   reloadCurrentPage() {
     let currentUrl = this.router.url;

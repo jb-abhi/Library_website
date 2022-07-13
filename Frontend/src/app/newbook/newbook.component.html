@@ -8,7 +8,8 @@
     </div> -->
   </div>
   <div class="right-side">
-    <h3 class="heading">Add New Book</h3>
+    <h3 class="heading" *ngIf="editmode">Update Book</h3>
+    <h3 class="heading" *ngIf="!editmode">Add New Book</h3>
     <form class="form-container-addbook" [formGroup]="form">
       <div class="title group">
         <label for="title">Title<span class="asterisk">&#42;</span></label>
@@ -80,14 +81,26 @@
           required
         ></textarea>
       </div>
-      <div class="success" *ngIf="ifSuccess">
-        <p>Book added successfully!</p>
+      <div class="success" *ngIf="ifUpdate">
+        <p>Book updated successfully!</p>
       </div>
       <div class="button">
         <button
           class="newbook btn"
           [disabled]="!form.valid"
+          (click)="onUpdate()"
+          *ngIf="editmode"
+        >
+          Update Book
+        </button>
+        <div class="success" *ngIf="ifSuccess">
+          <p>Book added successfully!</p>
+        </div>
+        <button
+          class="newbook btn"
+          [disabled]="!form.valid"
           (click)="onSubmit()"
+          *ngIf="!editmode"
         >
           Add new Book
         </button>

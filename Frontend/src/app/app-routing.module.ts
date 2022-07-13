@@ -12,7 +12,8 @@ const appRoutes: Routes = [
     component: BooksComponent,
   },
   { path: 'newbook', component: NewbookComponent },
-  { path: 'updatebook', component: UpdatebookComponent },
+  { path: 'updatebook', component: NewbookComponent },
+  { path: 'updatebook/:id', component: NewbookComponent },
 ];
 
 @NgModule({
