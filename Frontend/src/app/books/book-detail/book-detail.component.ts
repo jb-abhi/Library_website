@@ -40,13 +40,7 @@ export class BookDetailComponent implements OnInit {
     this._getbooklist();
   }
   OnUpdateForm(bookId: string) {
-    // this.router.navigate(['/updatebook'], { relativeTo: this.route });
     this.router.navigateByUrl(`updatebook/${bookId}`);
-    // this.route.params.subscribe((params) => {
-    //   if (params.id) {
-    //     this.bookService.getBook(params.id).subscribe((book) => {});
-    //   }
-    // });
   }
   reloadCurrentPage() {
     let currentUrl = this.router.url;

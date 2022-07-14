@@ -45,4 +45,5 @@ export class BookserviceService {
   deleteBook(bookId: string): Observable<Object> {
     return this.http.delete<Object>(this.apiURLbooklist + `/${bookId}`);
   }
+
 }

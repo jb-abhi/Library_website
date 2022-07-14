@@ -19,6 +19,7 @@
         </div>
         <div
           class="btn buttons__btn--login"
+          #login
           [ngClass]="signupVal ? '' : 'active'"
           (click)="onClickSubmit()"
         >
@@ -32,34 +33,41 @@
 
   <div class="container__right-side" [ngSwitch]="signupVal">
     <div class="container__right-side__title" *ngSwitchCase="true">
-      <div class="heading">Let's Sign Up</div>
-      <div class="desc--top">
+      <div class="heading" *ngIf="!signupsuccess">Let's Sign Up</div>
+      <div class="heading" *ngIf="signupsuccess">Great!</div>
+      <div class="desc--top" *ngIf="!signupsuccess">
         Getting started is quick and simple, just fill out the info below!
       </div>
+      <div class="desc--top" *ngIf="signupsuccess">
+        You have been registered successfully, Please login to continue.
+      </div>
     </div>
-    <!-- <form
+
+    <form
       class="container__right-side__form"
       *ngSwitchCase="true"
-      #signupform="ngForm"
-      (ngSubmit)="OnSubmitSignup()"
+      [formGroup]="signupFormGroup"
     >
-      <p class="help-block" *ngIf="!name.valid && name.touched">
+      <p
+        class="help-block"
+        *ngIf="!signupForm.name.valid && signupForm.name.touched"
+      >
         This field cannot be empty & numbers are not allowed
       </p>
       <div class="usernameco tick">
         <input
           class="form__input--name userinput"
           type="text"
+          formControlName="name"
           name="name"
-          #name="ngModel"
           placeholder="Full Name"
-          ngModel
-          required
           pattern="[a-zA-Z ]*"
         /><span class="material-symbols-outlined"> done_all </span>
       </div>
-
-      <p class="help-block" *ngIf="!email.valid && email.touched">
+      <p
+        class="help-block"
+        *ngIf="!signupForm.email.valid && signupForm.email.touched"
+      >
         Please enter a valid Email-Address
       </p>
       <div class="emailco tick">
@@ -67,15 +75,16 @@
           class="form__input--email userinput"
           type="email"
           name="email"
+          formControlName="email"
           placeholder="Email Address"
-          ngModel
-          required
           email
-          #email="ngModel"
         />
         <span class="material-symbols-outlined"> done_all </span>
       </div>
-      <p class="help-block" *ngIf="!password.valid && password.touched">
+      <p
+        class="help-block"
+        *ngIf="!signupForm.password.valid && signupForm.password.touched"
+      >
         Min. 8 characters required.
       </p>
       <div class="passwordco tick">
@@ -83,10 +92,8 @@
           class="form__input--password userinput"
           name="password"
           type="password"
+          formControlName="password"
           placeholder="Password"
-          ngModel
-          required
-          #password="ngModel"
           pattern=".{8,}"
         />
         <span class="material-symbols-outlined"> done_all </span>
@@ -97,29 +104,31 @@
           type="checkbox"
           name="TC"
           id="TC"
-          ngModel
-          required
+          formControlName="checkbox"
         />
         <p class="desc--middle" for="">
           I agree to
           <span><a href="">Terms & Conditions</a></span>
         </p>
       </div>
-      <p *ngIf="!signupform.valid && signupform.touched">The form is invalid</p>
+      <p class="help-block-auth" *ngIf="isSubmitted && authsignError">
+        {{ authsignMessage }}
+      </p>
       <button
         class="btn--purple"
         *ngSwitchCase="true"
+        (click)="onSignup()"
         type="submit"
-        [disabled]="!signupform.valid"
+        [disabled]="!signupFormGroup.valid"
       >
         Register
       </button>
-    </form> -->
-    <!-- <div class="desc--bottom" *ngSwitchCase="true">
+    </form>
+    <div class="desc--bottom" *ngSwitchCase="true">
       Already have an account? Click
       <span><a href="">here</a></span>
       to login
-    </div> -->
+    </div>
 
     <!-- LOGIN -->
 

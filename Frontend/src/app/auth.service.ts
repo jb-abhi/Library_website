@@ -28,4 +28,18 @@ export class AuthService {
     this.token.removeToken();
     this.router.navigate(['/login']);
   }
+
+  signup(name: string, email: string, password: string): Observable<User> {
+    return this.http.post<User>(`${this.apiURLUsers}/signup`, {
+      name,
+      email,
+      password,
+    });
+  }
+
+  // compareEmail(email: string): Observable<User> {
+  //   return this.http.post<User>(this.apiURLUsers + `/${email}`, {
+  //     email,
+  //   });
+  // }
 }

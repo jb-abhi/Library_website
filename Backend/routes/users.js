@@ -4,7 +4,6 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
 
-
 router.get("/", async (req, res) => {
   const userList = await User.find().select("-passwordHash");
 
@@ -64,6 +63,11 @@ router.post("/signup", async (req, res) => {
     email: req.body.email,
     passwordHash: bcrypt.hashSync(req.body.password, 10),
   });
+  console.log(user.email);
+  const usernew = await User.findOne({ email: req.body.email });
+
+  if (usernew?.email) return res.status(500).send("Found same mail id");
+
   user = await user.save();
 
   if (!user) return res.status(400).send("the user cannot be created!");
