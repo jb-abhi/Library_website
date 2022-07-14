@@ -92,9 +92,9 @@ export class NewbookComponent implements OnInit {
     const bookFormData = new FormData();
 
     bookFormData.append('title', this.form.controls?.['title'].value);
-    bookFormData.append('image', this.form.controls?.['image'].value);
     bookFormData.append('author', this.form.controls?.['author'].value);
     bookFormData.append('about', this.form.controls?.['about'].value);
+    bookFormData.append('image', this.form.controls?.['image'].value);
 
     this._updateBook(bookFormData);
   }
@@ -124,6 +124,7 @@ export class NewbookComponent implements OnInit {
           this.bookForm.image.setValue(book.image);
           this.bookForm.author.setValue(book.author);
           this.bookForm.about.setValue(book.about);
+          this.imageDisplay = book.image;
         });
       }
     });
