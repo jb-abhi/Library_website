@@ -12,11 +12,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { BookserviceService } from './bookservice.service';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
 import { BookImageComponent } from './books/book-detail/book-image/book-image.component';
+import { UsersModule } from './users.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     BooksComponent,
     HeaderComponent,
     NewbookComponent,
@@ -30,6 +30,7 @@ import { BookImageComponent } from './books/book-detail/book-image/book-image.co
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    UsersModule,
   ],
   providers: [BookserviceService],
   bootstrap: [AppComponent],
