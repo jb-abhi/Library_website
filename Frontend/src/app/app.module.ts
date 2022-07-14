@@ -8,11 +8,12 @@ import { LoginComponent } from './login/login.component';
 import { BooksComponent } from './books/books.component';
 import { HeaderComponent } from './header/header.component';
 import { NewbookComponent } from './newbook/newbook.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BookserviceService } from './bookservice.service';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
 import { BookImageComponent } from './books/book-detail/book-image/book-image.component';
 import { UsersModule } from './users.module';
+import { JwtInterceptor } from './jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,10 @@ import { UsersModule } from './users.module';
     AppRoutingModule,
     UsersModule,
   ],
-  providers: [BookserviceService],
+  providers: [
+    BookserviceService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
