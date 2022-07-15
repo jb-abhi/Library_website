@@ -10,12 +10,14 @@ const appRoutes: Routes = [
   // pathMatch: 'full',
   {
     path: '',
+    // pathMatch: 'full',
     canActivate: [AuthGuard],
     children: [
-      {
-        path: 'booklist',
-        component: BooksComponent,
-      },
+      // {
+      //   path: 'booklist',
+      //   component: BooksComponent,
+      // },
+      { path: '', component: BooksComponent },
       { path: 'newbook', component: NewbookComponent },
       { path: 'updatebook', component: NewbookComponent },
       { path: 'updatebook/:id', component: NewbookComponent },

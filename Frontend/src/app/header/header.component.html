@@ -1,10 +1,15 @@
 <div class="container">
-  <li class="namelogo" routerLinkActive="active" routerLink="newbook">
+  <li class="namelogo" routerLinkActive="active" routerLink="/newbook">
     <a style="cursor: pointer" class="nav-link">Add new book</a>
     <span class="logo" class="material-symbols-outlined"> library_add </span>
   </li>
 
-  <li class="namelogo" routerLinkActive="active" routerLink="booklist">
+  <li
+    class="namelogo"
+    routerLinkActive="active"
+    routerLink="/"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
     <a style="cursor: pointer" class="nav-link">Book Listing</a>
   </li>
 
