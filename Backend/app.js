@@ -7,8 +7,10 @@ const cors = require("cors");
 const authJwt = require("./helpers/jwt");
 const errorHandler = require("./helpers/error-handler");
 
+const PORT = process.env.PORT || 3000;
+
 app.use(cors());
-app.options("*", cors());
+// app.options("*", cors());
 
 app.use(express.json());
 app.use(morgan("tiny"));
@@ -22,7 +24,7 @@ mongoose
   .connect(process.env.CONNECTION_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: "librarydata",
+    dbName: process.env.DB_NAME,
   })
   .then(() => {
     console.log("Database connection is ready..");
@@ -30,6 +32,19 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With,Content-Type,Accept"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET,POST,PATCH,DELETE,OPTIONS"
+  );
+  next();
+});
 
 //Routes
 const booksRoutes = require("./routes/booklist");
@@ -42,6 +57,6 @@ app.use(`${api}/addbook`, addbookRoutes);
 app.use(`${api}/updatebook`, updatebookRoutes);
 app.use(`${api}/users`, usersRoutes);
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("Server is listening");
 });

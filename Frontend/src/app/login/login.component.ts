@@ -77,13 +77,8 @@ export class LoginComponent implements OnInit {
   onClickSubmit() {
     this.signupVal = false;
   }
-  // OnSubmitSignup() {
-  //   console.log(this.signupform);
-  // }
 
   onLogin() {
-    // console.log('Submitted');
-
     if (this.loginFormGroup.invalid) return;
 
     this.isSubmitted = true;
@@ -94,7 +89,6 @@ export class LoginComponent implements OnInit {
     };
     this.auth.login(loginData.email, loginData.password).subscribe(
       (user) => {
-        console.log(user);
         this.authError = false;
         this.localstorageService.setToken(user.token);
         this.router.navigate(['/']);
@@ -110,8 +104,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSignup() {
-    // console.log('Submitted');
-
     if (this.signupFormGroup.invalid) return;
 
     this.isSubmitted = true;
@@ -126,7 +118,6 @@ export class LoginComponent implements OnInit {
       .signup(signupData.name, signupData.email, signupData.password)
       .subscribe(
         (user) => {
-          console.log(user);
           this.authsignError = false;
           this.signupFormGroup.reset();
           this.signupsuccess = true;
