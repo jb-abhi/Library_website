@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
   // }
 
   onLogin() {
-    console.log('Submitted');
+    // console.log('Submitted');
 
     if (this.loginFormGroup.invalid) return;
 
@@ -110,7 +110,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSignup() {
-    console.log('Submitted');
+    // console.log('Submitted');
 
     if (this.signupFormGroup.invalid) return;
 

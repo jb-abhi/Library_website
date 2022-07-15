@@ -27,7 +27,7 @@ export class BookDetailComponent implements OnInit {
 
   private _getbooklist() {
     this.bookService.getData().subscribe((data) => {
-      console.log('getbooklist called');
+      // console.log('getbooklist called');
       this.individualbook.id = data.id;
       this.individualbook.title = data.title;
       this.individualbook.author = data.author;
@@ -54,7 +54,7 @@ export class BookDetailComponent implements OnInit {
   OnDeleteBook(bookId: string) {
     if (confirm('Are you sure you want to delete the selected book')) {
       this.bookService.deleteBook(bookId).subscribe(() => {
-        console.log('The book has been deleted');
+        // console.log('The book has been deleted');
         this.booklistUpdated.emit();
         this.reloadCurrentPage();
       });

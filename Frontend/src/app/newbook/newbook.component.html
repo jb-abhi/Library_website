@@ -5,7 +5,7 @@
         note_add
       </span>
       <span class="material-symbols-outlined" *ngIf="editmode">
-        edit_note
+        edit_document
       </span>
     </p>
     <!-- <div class="image-container">
@@ -13,7 +13,7 @@
     </div> -->
   </div>
   <div class="right-side">
-    <h3 class="heading" *ngIf="editmode">Update Book</h3>
+    <h3 class="heading" *ngIf="editmode">Edit Book</h3>
     <h3 class="heading" *ngIf="!editmode">Add New Book</h3>
     <form class="form-container-addbook" [formGroup]="form">
       <div class="title group">
@@ -99,7 +99,7 @@
           (click)="onUpdate()"
           *ngIf="editmode"
         >
-          Update Book
+          Save Changes
         </button>
         <button
           class="newbookAdd btn"
