@@ -44,9 +44,11 @@ export class BookDetailComponent implements OnInit {
   }
   reloadCurrentPage() {
     let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([currentUrl]);
-    });
+    this.router
+      .navigateByUrl('/updatebook', { skipLocationChange: true })
+      .then(() => {
+        this.router.navigate([currentUrl]);
+      });
   }
 
   OnDeleteBook(bookId: string) {

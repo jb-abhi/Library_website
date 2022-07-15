@@ -130,7 +130,7 @@ export class LoginComponent implements OnInit {
           this.authsignError = false;
           this.signupFormGroup.reset();
           this.signupsuccess = true;
-          timer(2000)
+          timer(1800)
             .toPromise()
             .then(() => {
               this.login.nativeElement.click();

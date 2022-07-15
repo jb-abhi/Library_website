@@ -36,10 +36,4 @@ export class AuthService {
       password,
     });
   }
-
-  // compareEmail(email: string): Observable<User> {
-  //   return this.http.post<User>(this.apiURLUsers + `/${email}`, {
-  //     email,
-  //   });
-  // }
 }
