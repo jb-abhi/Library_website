@@ -1,75 +1,78 @@
-<div class="middle">
-  <div class="middle--group">
-    <div class="heading">{{ individualbook.title }}</div>
-    <div class="author">
-      by
-      <span
-        class="bold"
-        [ngStyle]="{
-          'text-transform': 'uppercase',
-          'font-family': 'Kanit , sans-serif',
-          'letter-spacing': '0.5rem'
-        }"
-      >
-        &nbsp;{{ individualbook.author }}</span
-      >
+<div class="container-detail">
+  <app-book-image></app-book-image>
+  <div class="middle">
+    <div class="middle--group">
+      <div class="heading">{{ individualbook.title }}</div>
+      <div class="author">
+        by
+        <span
+          class="bold"
+          [ngStyle]="{
+            'text-transform': 'uppercase',
+            'font-family': 'Kanit , sans-serif',
+            'letter-spacing': '0.5rem'
+          }"
+        >
+          &nbsp;{{ individualbook.author }}</span
+        >
+      </div>
     </div>
-  </div>
-  <div class="info">
-    <p>
-      {{ individualbook.about }}
-    </p>
-  </div>
-  <hr />
-  <div class="small-container">
-    <div class="small-container__left">
-      <ul>
-        Editors
-      </ul>
-      <ul>
-        Gestalten
-      </ul>
-      <ul>
-        Release Date
-      </ul>
-      <ul>
-        May 2017
-      </ul>
-      <ul>
-        Format
-      </ul>
-      <ul>
-        25X26 cm
-      </ul>
+    <div class="info">
+      <p>
+        {{ individualbook.about }}
+      </p>
     </div>
-    <div class="small-container__right">
-      <ul>
-        Features
-      </ul>
-      <ul>
-        Full color, 256 pages
-      </ul>
-      <ul>
-        Language
-      </ul>
-      <ul>
-        English
-      </ul>
-      <ul>
-        ISBN
-      </ul>
-      <ul>
-        978-3-89955-698-8
-      </ul>
+    <hr />
+    <div class="small-container">
+      <div class="small-container__left">
+        <ul>
+          Editors
+        </ul>
+        <ul>
+          Gestalten
+        </ul>
+        <ul>
+          Release Date
+        </ul>
+        <ul>
+          May 2017
+        </ul>
+        <ul>
+          Format
+        </ul>
+        <ul>
+          25X26 cm
+        </ul>
+      </div>
+      <div class="small-container__right">
+        <ul>
+          Features
+        </ul>
+        <ul>
+          Full color, 256 pages
+        </ul>
+        <ul>
+          Language
+        </ul>
+        <ul>
+          English
+        </ul>
+        <ul>
+          ISBN
+        </ul>
+        <ul>
+          978-3-89955-698-8
+        </ul>
+      </div>
     </div>
-  </div>
-  <hr />
-  <div class="button-group">
-    <button class="update" (click)="OnUpdateForm(individualbook.id)">
-      Edit
-    </button>
-    <button class="delete" (click)="OnDeleteBook(individualbook.id)">
-      Delete
-    </button>
+    <hr />
+    <div class="button-group">
+      <button class="update" (click)="OnUpdateForm(individualbook.id)">
+        Edit
+      </button>
+      <button class="delete" (click)="OnDeleteBook(individualbook.id)">
+        Delete
+      </button>
+    </div>
   </div>
 </div>
